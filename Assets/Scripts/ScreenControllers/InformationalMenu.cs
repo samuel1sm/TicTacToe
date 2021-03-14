@@ -1,40 +1,34 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonInformations : MonoBehaviour
+public class InformationalMenu : MonoBehaviour
 {
-    [SerializeField] private Vector2Int buttonPosition;
+
+    [SerializeField] private TextMeshProUGUI playerOneNameSpace;
+    [SerializeField] private TextMeshProUGUI playerTwoNameSpace;
+
     [SerializeField] private Image playerOneImage;
     [SerializeField] private Image playerTwoImage;
+
     private GameSetupHandler _setupHandler;
-    private GameManager _gameManager;
 
     private void Awake()
     {
-        _gameManager = GetComponentInParent<GameManager>();
         _setupHandler = GameSetupHandler.Instance;
         _setupHandler.UpdatePlayersImages += UpdateImages;
+        _setupHandler.UpdatePlayersNames += UpdateNames;
     }
 
-    void Start()
+    private void UpdateNames(string arg1, string arg2)
     {
-        _gameManager.UpdatePosition += VerifyIfPositionUpdated;
+        playerOneNameSpace.text = arg1;
+        playerTwoNameSpace.text = arg2;
     }
 
-    private void VerifyIfPositionUpdated(Vector2 selectedPosition, bool player)
-    {
-        if(selectedPosition != buttonPosition) return;
-
-        if (player)
-            playerTwoImage.gameObject.SetActive(true);
-        else
-            playerOneImage.gameObject.SetActive(true);
-        
-    }
-    
     private void UpdateImages(GameMarkersSo arg1, GameMarkersSo arg2)
     {
         playerOneImage.sprite = arg1.itemImage;
@@ -44,5 +38,14 @@ public class ButtonInformations : MonoBehaviour
         playerTwoImage.color = arg2.itemColor;
     }
 
+    void Start()
+    {
+        
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
