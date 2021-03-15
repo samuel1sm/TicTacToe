@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EndMenuController : MonoBehaviour
 {
@@ -37,6 +38,24 @@ public class EndMenuController : MonoBehaviour
     {
         endingArea.SetActive(true);
         resetArea.SetActive(false);
+    }
+
+    public void ChoseStartPlayer(bool isTheSecond)
+    {
+        GameManager.IsSecondPlayerTurn = isTheSecond;
+        ReloadGame();
+    }
+    
+    public void ChoseRandomPlayer()
+    {
+        GameManager.IsSecondPlayerTurn = Random.Range(0f, 1f) > 0.5f;
+        ReloadGame();
+    }
+
+
+    private void ReloadGame()
+    {
+        SceneController.LoadGameScene();
     }
     
     
