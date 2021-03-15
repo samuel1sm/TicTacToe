@@ -8,7 +8,6 @@ public class GameSetupHandler : Singleton<GameSetupHandler>
 {
     public event Action<GameMarkersSo, GameMarkersSo> UpdatePlayersImages = delegate {  };
     public event Action<string, string> UpdatePlayersNames = delegate {  };
-    
     private PlayerData _playerData;
 
     private void Awake()
