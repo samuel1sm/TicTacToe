@@ -15,12 +15,12 @@ public class ButtonInformations : MonoBehaviour
     private void Awake()
     {
         _gameManager = GetComponentInParent<GameManager>();
-        _setupHandler = GameSetupHandler.Instance;
-        _setupHandler.UpdatePlayersImages += UpdateImages;
+        _setupHandler = GetComponentInParent<GameSetupHandler>();
     }
 
     void Start()
     {
+        _setupHandler.UpdatePlayersImages += UpdateImages;
         _gameManager.UpdatePosition += VerifyIfPositionUpdated;
     }
 

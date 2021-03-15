@@ -12,7 +12,7 @@ public class GameSetupHandler : Singleton<GameSetupHandler>
 
     private void Awake()
     {
-        _playerData = PlayerData.Instance;
+        _playerData = FindObjectOfType<PlayerData>();
 
     }
 

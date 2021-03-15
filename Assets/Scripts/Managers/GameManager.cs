@@ -7,9 +7,10 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     private int[,] _gameMatrix;
-    private bool _playerTurn = false;
+    private static bool _playerTurn = false;
     public event Action<Vector2, bool> UpdatePosition = delegate { };
-    
+    public event Action<int> EndGame = delegate { };
+    private int _movesQtd = 0;
     private void Awake()
     {
         _gameMatrix = new int[3, 3];
@@ -64,10 +65,16 @@ public class GameManager : Singleton<GameManager>
         if (_gameMatrix[position.x, position.y] != 0) return;
 
         _gameMatrix[position.x, position.y] = _playerTurn ? 1 : -1;
-    
-        print(VerifyWinningCondition());
-        
+        _movesQtd++;
+
         UpdatePosition(position, _playerTurn);
         _playerTurn = !_playerTurn;
+        
+        int result = VerifyWinningCondition();
+        if (result != 0 || _movesQtd == 9)
+        {
+            EndGame(result);
+        }
+
     }
 }

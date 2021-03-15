@@ -14,17 +14,18 @@ public class InformationalMenu : MonoBehaviour
     [SerializeField] private Image playerOneImage;
     [SerializeField] private Image playerTwoImage;
 
-    private GameSetupHandler _setupHandler;
+    [SerializeField] private GameSetupHandler setupHandler;
 
     private void Awake()
     {
-        _setupHandler = GameSetupHandler.Instance;
-        _setupHandler.UpdatePlayersImages += UpdateImages;
-        _setupHandler.UpdatePlayersNames += UpdateNames;
+        // _setupHandler = GameSetupHandler.Instance;
+    
     }
 
     private void UpdateNames(string arg1, string arg2)
     {
+        
+        
         playerOneNameSpace.text = arg1;
         playerTwoNameSpace.text = arg2;
     }
@@ -40,7 +41,8 @@ public class InformationalMenu : MonoBehaviour
 
     void Start()
     {
-        
+        setupHandler.UpdatePlayersImages += UpdateImages;
+        setupHandler.UpdatePlayersNames += UpdateNames;
     }
 
     // Update is called once per frame
