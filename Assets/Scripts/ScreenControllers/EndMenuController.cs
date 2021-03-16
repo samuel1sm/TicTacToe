@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class EndMenuController : MonoBehaviour
 {
+    [SerializeField] private GameObject gameArea;
     [SerializeField] private GameObject resetArea;
     [SerializeField] private GameObject endingArea;
     [SerializeField] private TextMeshProUGUI endTextMeshProUGUI;
@@ -30,14 +31,14 @@ public class EndMenuController : MonoBehaviour
 
     public void OpenResetGameArea()
     {
-        endingArea.SetActive(false);
         resetArea.SetActive(true);
+        endingArea.SetActive(false);
     }
 
     public void OpenEndArea()
     {
-        endingArea.SetActive(true);
         resetArea.SetActive(false);
+        endingArea.SetActive(true);
     }
 
     public void ChoseStartPlayer(bool isTheSecond)
@@ -57,6 +58,10 @@ public class EndMenuController : MonoBehaviour
     {
         SceneController.LoadGameScene();
     }
-    
-    
+
+    private void OnEnable()
+    {
+        gameArea.SetActive(false);
+            
+    }
 }

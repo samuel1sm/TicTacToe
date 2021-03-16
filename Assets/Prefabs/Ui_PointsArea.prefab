@@ -148,8 +148,9 @@ GameObject:
   - component: {fileID: 2725795344721964034}
   - component: {fileID: 2725795344721964032}
   - component: {fileID: 2725795344721964033}
+  - component: {fileID: 4757474760898522101}
   m_Layer: 5
-  m_Name: PointsArea
+  m_Name: Ui_PointsArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,6 +214,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4757474760898522101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2725795344721964035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd700676bf3537e439aeecfc1d50c19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPlayerText: {fileID: 2725795345708624837}
+  secondPlayerText: {fileID: 2725795346256804974}
 --- !u!1 &2725795345708624839
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +240,7 @@ GameObject:
   - component: {fileID: 2725795345708624836}
   - component: {fileID: 2725795345708624837}
   m_Layer: 5
-  m_Name: LeftPlayerPoints
+  m_Name: FirstPlayerPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,7 +292,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7659f6d6ec9b642db8be29bc45fe97cc, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 7659f6d6ec9b642db8be29bc45fe97cc,
@@ -359,7 +376,7 @@ GameObject:
   - component: {fileID: 2725795346256804973}
   - component: {fileID: 2725795346256804974}
   m_Layer: 5
-  m_Name: RightPlayerPoint
+  m_Name: SecondPlayerPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,7 +428,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: '0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7659f6d6ec9b642db8be29bc45fe97cc, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 7659f6d6ec9b642db8be29bc45fe97cc,

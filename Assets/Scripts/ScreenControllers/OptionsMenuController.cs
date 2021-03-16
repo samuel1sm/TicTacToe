@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class OptionsMenuController : MonoBehaviour
 {
-    [SerializeField] private GameObject optionsButton;
+    [SerializeField] [CanBeNull] private GameObject optionsButton;
 
     private void OnEnable()
     {
-        optionsButton.SetActive(false);
+        optionsButton?.SetActive(false);
     }
 
     private void OnDisable()
     {
-        optionsButton.SetActive(true);
+        optionsButton?.SetActive(true);
     }
 
     public void BackToMainMenu()
