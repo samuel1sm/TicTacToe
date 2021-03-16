@@ -25,7 +25,7 @@ public class EndMenuController : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneController.LoadGameMainMenu();
+        SceneController.LoadMainMenu();
     }
 
     public void OpenResetGameArea()

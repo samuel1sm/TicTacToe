@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
             SceneManager.LoadScene(sceneBuildIndex: 1);
         }
         
-        public static void LoadGameMainMenu()
+        public static void LoadMainMenu()
         {
             SceneManager.LoadScene(sceneBuildIndex: 0);
         }
