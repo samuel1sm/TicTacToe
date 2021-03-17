@@ -6,13 +6,13 @@ using UnityEngine.Serialization;
 
 public class PlayerData : MonoBehaviour
 {
-    
-    [SerializeField] private GameMarkersSo primaryMarkerSo;
     [SerializeField] private GameMarkersSo secondMarkerSo;
-    [SerializeField] private List<GameMarkersSo> playerOwnedMarkers;
+    [SerializeField] private GameMarkersSo primaryMarkerSo;
+    [SerializeField] public List<GameMarkersSo> playerOwnedMarkers;
+    [SerializeField] public List<GameMarkersSo> notOwnedIconsList;
     [SerializeField] private string playerName;
+
     public static PlayerData Instance;
-    
 
     private void Awake()
     {
@@ -20,19 +20,23 @@ public class PlayerData : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(Instance);
-        }else
+        }
+        else
         {
             Destroy(gameObject);
         }
 
-        playerOwnedMarkers = new List<GameMarkersSo>();
-        
     }
 
     public string PlayerName
     {
         get => playerName;
         set => playerName = value;
+    }
+
+    public List<GameMarkersSo> GetOwnedMarkers()
+    {
+        return playerOwnedMarkers;
     }
 
     public GameMarkersSo PrimaryMarkerSo
@@ -46,11 +50,24 @@ public class PlayerData : MonoBehaviour
         get => secondMarkerSo;
         set => secondMarkerSo = value;
     }
-
+    
     public void AddOwnedMarkers(GameMarkersSo newGameMarkersSo)
     {
         playerOwnedMarkers.Add(newGameMarkersSo);
     }
     
+    public bool IsListEmpty()
+    {
+        return notOwnedIconsList.Count == 0;
+    }
     
+    public void RemoveFirstItem()
+    {
+        notOwnedIconsList.RemoveAt(0);
+    }
+
+    public GameMarkersSo GetFirstItem()
+    {
+        return notOwnedIconsList[0];
+    }
 }

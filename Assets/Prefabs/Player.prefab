@@ -43,7 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c3ea6affd1a3042971743372f89b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryMarkerSo: {fileID: 11400000, guid: 2bdcd757e33172a48a31925898f2d06b, type: 2}
-  secondMarkerSo: {fileID: 11400000, guid: 1b6eadf017153fa49ba775fe4fabc518, type: 2}
-  playerOwnedMarkers: []
+  secondMarkerSo: {fileID: 11400000, guid: 1b293ddc258f915438d41b8fb26edec6, type: 2}
+  primaryMarkerSo: {fileID: 11400000, guid: 0485bf25d6b5c2b4985f7b61d3a452c4, type: 2}
+  playerOwnedMarkers:
+  - {fileID: 11400000, guid: 1b293ddc258f915438d41b8fb26edec6, type: 2}
+  - {fileID: 11400000, guid: 0485bf25d6b5c2b4985f7b61d3a452c4, type: 2}
+  notOwnedIconsList:
+  - {fileID: 11400000, guid: 7e4f016a12470094fb6a9c68f6140a2b, type: 2}
+  - {fileID: 11400000, guid: 499ccf61b20dd3247bc8d67cf7546034, type: 2}
+  - {fileID: 11400000, guid: e86b4eeddcb1ab644ac231c8c67b02fd, type: 2}
+  - {fileID: 11400000, guid: aeda867c1fce85f4c808d223f44b3de8, type: 2}
+  - {fileID: 11400000, guid: 09c7fe8ccf0e80f4f8df65454db04300, type: 2}
+  - {fileID: 11400000, guid: 12d1b091d3420834ea020dc7e93e61b7, type: 2}
   playerName: Samuel

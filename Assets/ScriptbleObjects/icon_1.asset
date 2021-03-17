@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: icon_OStandart
-  m_EditorClassIdentifier: Assembly-CSharp::GameMarkersSo
+  m_Script: {fileID: 11500000, guid: bd1ba7d452909bd44b6fd667e44b586c, type: 3}
+  m_Name: icon_1
+  m_EditorClassIdentifier: 
   itemColor: {r: 1, g: 1, b: 1, a: 1}
-  itemImage: {fileID: -6274298186209087933, guid: 45bbda35cfb698e4c9a4188f522b603f,
+  itemImage: {fileID: -5911420186981158900, guid: 45bbda35cfb698e4c9a4188f522b603f,
     type: 3}
   value: 0

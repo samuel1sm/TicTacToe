@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Icon Skin", menuName = "Player Skins/Icon Skin")]
+[CreateAssetMenu(fileName = "IconSkin", menuName = "Player Skins/IconSkin")]
 public class GameMarkersSo : ScriptableObject
 {
     public Color itemColor = Color.white;

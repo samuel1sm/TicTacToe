@@ -39,7 +39,6 @@ public class PointsArea : MonoBehaviour
                 break;
         }
 
-        print(obj);
         firstPlayerText.text = _firstPlayerPoints.ToString();
         secondPlayerText.text = _secondPlayerPoints.ToString();
     }
