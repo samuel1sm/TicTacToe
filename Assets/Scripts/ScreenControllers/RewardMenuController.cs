@@ -30,6 +30,7 @@ public class RewardMenuController : MonoBehaviour
     {
         _firstScrollSnap = firstDynamicContentController.GetComponent<SimpleScrollSnap>();
         _secondScrollSnap = secondDynamicContentController.GetComponent<SimpleScrollSnap>();
+        
         _playerData = FindObjectOfType<PlayerData>();
         var positions = _playerData.GetStartIndexes();
         _secondPreviousItem = positions.y;

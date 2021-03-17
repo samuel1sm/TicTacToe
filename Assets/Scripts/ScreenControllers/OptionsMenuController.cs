@@ -3,19 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OptionsMenuController : MonoBehaviour
 {
-    [SerializeField] [CanBeNull] private GameObject optionsButton;
+    [SerializeField] private GameObject optionsButton;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider effectsSlider;
+
+    // private AudioManager _audioManager;
+
+    private void Awake()
+    {
+        // _audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void OnEnable()
     {
-        optionsButton?.SetActive(false);
+        if(!optionsButton) return;
+        optionsButton.SetActive(false);
     }
 
     private void OnDisable()
     {
-        optionsButton?.SetActive(true);
+        if(!optionsButton) return;
+        optionsButton.SetActive(true);
     }
 
     public void BackToMainMenu()
@@ -26,5 +38,18 @@ public class OptionsMenuController : MonoBehaviour
     public void CloseScreen()
     {
         gameObject.SetActive(false);
+    }
+
+    public void UpdateMusicVolume()
+    {
+        AudioManager.Instance.UpdateMusicVolume(musicSlider.value);
+        // _audioManager
+    }
+    
+    public void UpdateEffectsVolume()
+    {
+        AudioManager.Instance.UpdateEffectsVolume(effectsSlider.value);
+
+        // _audioManager.UpdateEffectsVolume(effectsSlider.value);
     }
 }

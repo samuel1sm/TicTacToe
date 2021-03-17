@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject configTab;
     [SerializeField] private GameObject errorTab;
     [SerializeField] private GameObject rewardTab;
     [SerializeField] private GameObject mainTab;
@@ -28,5 +29,10 @@ public class MainMenuManager : MonoBehaviour
     public void ActivateErrorTab(bool activate)
     {
         errorTab.SetActive(activate);
+    }
+
+    public void OpenConfigTab()
+    {
+        configTab.SetActive(true);
     }
 }
