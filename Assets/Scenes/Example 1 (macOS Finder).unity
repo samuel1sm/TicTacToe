@@ -3870,6 +3870,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u201CThriller\u201D by Michael Jackson"
       objectReference: {fileID: 0}
+    - target: {fileID: 114712543610576140, guid: 7f6e25982e6996a44b65e6e63d46bcc0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224331930592058628, guid: 7f6e25982e6996a44b65e6e63d46bcc0,
         type: 3}
       propertyPath: m_Pivot.x

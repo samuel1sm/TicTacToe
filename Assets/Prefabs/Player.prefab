@@ -48,6 +48,8 @@ MonoBehaviour:
   playerOwnedMarkers:
   - {fileID: 11400000, guid: 1b293ddc258f915438d41b8fb26edec6, type: 2}
   - {fileID: 11400000, guid: 0485bf25d6b5c2b4985f7b61d3a452c4, type: 2}
+  - {fileID: 11400000, guid: 37c5b7a836e5c5a47a43880278fe5328, type: 2}
+  - {fileID: 11400000, guid: a47106bc9149a4842bb65688ade0189e, type: 2}
   notOwnedIconsList:
   - {fileID: 11400000, guid: 7e4f016a12470094fb6a9c68f6140a2b, type: 2}
   - {fileID: 11400000, guid: 499ccf61b20dd3247bc8d67cf7546034, type: 2}

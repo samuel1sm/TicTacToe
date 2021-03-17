@@ -51,7 +51,7 @@ public class RewardBarController : MonoBehaviour
     {
         selectItemButton.enabled = false;
         barImage.fillAmount -= 1f;
-        
+        _playerData.AddOwnedMarkers(_playerData.GetFirstItem());
         _playerData.RemoveFirstItem();
         newItemFx.Stop();
         UpdateNextImage();

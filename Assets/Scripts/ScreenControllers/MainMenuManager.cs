@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject errorTab;
     [SerializeField] private GameObject rewardTab;
     [SerializeField] private GameObject mainTab;
-
     public void StartGame()
     {
         SceneController.LoadGameScene();
@@ -22,5 +23,10 @@ public class MainMenuManager : MonoBehaviour
     {
         mainTab.SetActive(true);
         rewardTab.SetActive(false);
+    }
+    
+    public void ActivateErrorTab(bool activate)
+    {
+        errorTab.SetActive(activate);
     }
 }

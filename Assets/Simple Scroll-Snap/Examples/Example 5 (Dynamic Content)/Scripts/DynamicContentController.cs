@@ -15,7 +15,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         protected GameObject panel, toggle, addInput, removeInput;
 
         private float toggleWidth;
-        [SerializeField] private SimpleScrollSnap sss;
+        private SimpleScrollSnap sss;
         #endregion
 
         #region Methods
@@ -74,8 +74,8 @@ namespace DanielLochner.Assets.SimpleScrollSnap
             if (sss.NumberOfPanels > 0)
             {
                 //Pagination
-                DestroyImmediate(sss.pagination.transform.GetChild(sss.NumberOfPanels - 1).gameObject);
-                sss.pagination.transform.position += new Vector3(toggleWidth / 2f, 0, 0);
+                // DestroyImmediate(sss.pagination.transform.GetChild(sss.NumberOfPanels - 1).gameObject);
+                // sss.pagination.transform.position += new Vector3(toggleWidth / 2f, 0, 0);
 
                 //Panel
                 sss.Remove(index);

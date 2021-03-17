@@ -70,4 +70,12 @@ public class PlayerData : MonoBehaviour
     {
         return notOwnedIconsList[0];
     }
+
+    public Vector2Int GetStartIndexes()
+    {
+        var i = playerOwnedMarkers.FindIndex(a => a == secondMarkerSo);
+        var j = playerOwnedMarkers.FindIndex(a => a == primaryMarkerSo);
+        
+        return new Vector2Int(i, j);
+    }
 }
