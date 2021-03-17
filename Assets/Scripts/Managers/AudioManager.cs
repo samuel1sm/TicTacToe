@@ -9,7 +9,9 @@ public enum Sound
     MusicTwo,
     ButtonClicked,
     NewItem,
-    EndScreen
+    EndScreen,
+    ScrollSound,
+    SetIcon
 }
 
 [System.Serializable]

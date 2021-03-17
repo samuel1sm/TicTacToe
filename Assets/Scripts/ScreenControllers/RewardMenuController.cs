@@ -23,19 +23,18 @@ public class RewardMenuController : MonoBehaviour
     private int _firstPreviousItem;
 
     private PlayerData _playerData;
-    private ViewportItem[] _firstPanels;
-    private ViewportItem[] _secondPanels;
+
 
     private void Awake()
     {
         _firstScrollSnap = firstDynamicContentController.GetComponent<SimpleScrollSnap>();
         _secondScrollSnap = secondDynamicContentController.GetComponent<SimpleScrollSnap>();
-        
+
         _playerData = FindObjectOfType<PlayerData>();
         var positions = _playerData.GetStartIndexes();
         _secondPreviousItem = positions.y;
         _firstPreviousItem = positions.x;
-        
+
         _mainMenuManager = GetComponentInParent<MainMenuManager>();
         _gameMarkersSo = _playerData.GetOwnedMarkers();
         UpdateContent();
@@ -43,14 +42,9 @@ public class RewardMenuController : MonoBehaviour
 
     private void OnEnable()
     {
-        
         VerifyMarkers();
         _firstScrollSnap.startingPanel = _firstPreviousItem;
         _secondScrollSnap.startingPanel = _secondPreviousItem;
-        
-        _secondScrollSnap.Panels[_firstPreviousItem].GetComponent<ViewportItem>().WasSelected(true);
-        _firstScrollSnap.Panels[_secondPreviousItem].GetComponent<ViewportItem>().WasSelected(true);
-
 
 
     }
@@ -72,44 +66,38 @@ public class RewardMenuController : MonoBehaviour
             secondDynamicContentController.AddToBack();
         }
 
-        _firstPanels  = firstIconContent.GetComponentsInChildren<ViewportItem>();
-        _secondPanels  = secondIconContent.GetComponentsInChildren<ViewportItem>();
+        var firstPanels = firstIconContent.GetComponentsInChildren<ViewportItem>();
+        var secondPanels = secondIconContent.GetComponentsInChildren<ViewportItem>();
 
         for (int i = 0; i < firstIconContent.childCount; i++)
         {
-            _firstPanels[i].UpdateItemIcon(_gameMarkersSo[i]);
-            _secondPanels[i].UpdateItemIcon(_gameMarkersSo[i]);
+            firstPanels[i].UpdateItemIcon(_gameMarkersSo[i]);
+            secondPanels[i].UpdateItemIcon(_gameMarkersSo[i]);
         }
     }
 
     public void ChangedSelectedItem(bool isFirstView)
     {
-        
         // var panels = isFirstView ? _secondScrollSnap.Panels : _firstScrollSnap.Panels;
         if (isFirstView)
         {
-            _secondPanels[_firstPreviousItem].WasSelected(false);
-             _firstPreviousItem = _firstScrollSnap.CurrentPanel;
-
-             _secondPanels[_firstPreviousItem].WasSelected(true);
+            _firstPreviousItem = _firstScrollSnap.CurrentPanel;
         }
         else
         {
-            _firstPanels[_secondPreviousItem].WasSelected(false);
             _secondPreviousItem = _secondScrollSnap.CurrentPanel;
-            _firstPanels[_secondPreviousItem].WasSelected(true);
         }
-        
     }
 
     public void BackToMainMenu()
     {
-        if(_firstPreviousItem == _secondPreviousItem)
+        if (_firstPreviousItem == _secondPreviousItem)
             _mainMenuManager.ActivateErrorTab(true);
         else
         {
-            _playerData.SecondMarkerSo = _firstPanels[_firstPreviousItem].GetMarkersSo();
-            _playerData.PrimaryMarkerSo = _secondPanels[_secondPreviousItem].GetMarkersSo();
+            var icons = _firstScrollSnap.Panels;
+            _playerData.SecondMarkerSo = icons[_firstPreviousItem].GetComponent<ViewportItem>().GetMarkersSo();
+            _playerData.PrimaryMarkerSo =  icons[_secondPreviousItem].GetComponent<ViewportItem>().GetMarkersSo();
 
             _mainMenuManager.OpenMainTab();
         }

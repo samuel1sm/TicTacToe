@@ -197,13 +197,13 @@ MonoBehaviour:
   automaticallyLayout: 1
   sizeControl: 0
   size: {x: 200, y: 200}
-  automaticLayoutSpacing: 0.2
+  automaticLayoutSpacing: 0
   leftMargin: 0
   rightMargin: 0
   topMargin: 0
   bottomMargin: 0
   infinitelyScroll: 1
-  infiniteScrollingEndSpacing: 0.1
+  infiniteScrollingEndSpacing: 0
   useOcclusionCulling: 0
   startingPanel: 0
   swipeGestures: 1
@@ -219,7 +219,29 @@ MonoBehaviour:
   useUnscaledTime: 0
   onPanelChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ChangedSelectedItem
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: PlayScrollSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onPanelSelecting:
     m_PersistentCalls:
       m_Calls: []
