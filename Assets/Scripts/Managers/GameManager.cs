@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
@@ -15,10 +13,7 @@ public class GameManager : Singleton<GameManager>
     {
         _gameMatrix = new int[3, 3];
     }
-
-    private void Start()
-    {
-    }
+    
 
     private int VerifyWinningCondition()
     {

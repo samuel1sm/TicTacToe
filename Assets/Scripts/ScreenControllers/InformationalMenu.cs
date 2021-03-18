@@ -48,13 +48,13 @@ public class InformationalMenu : MonoBehaviour
         setupHandler.UpdatePlayersImages += UpdateImages;
         setupHandler.UpdatePlayersNames += UpdateNames;
         _gameManager.UpdatePosition += UpdatePlayer;
-        UpdatePlayer(Vector2.down, !_gameManager.isActiveAndEnabled);
+        UpdatePlayer(Vector2.down, _gameManager.isActiveAndEnabled);
         
     }
 
     private void UpdatePlayer(Vector2 arg1, bool arg2)
     {
-        if (arg2)
+        if (!arg2)
         {
             firstPlayerTurnIcon.SetActive(false);
             secondPlayerTurnIcon.SetActive(true);

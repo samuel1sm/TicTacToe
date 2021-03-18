@@ -117,8 +117,5 @@ public class PlayerData : MonoBehaviour
         return new Vector2Int(i, j);
     }
 
-    public void IncreasePlayedGames()
-    {
-        playedGames++;
-    }
+ 
 }
