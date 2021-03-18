@@ -98,7 +98,7 @@ public class RewardMenuController : MonoBehaviour
             var icons = _firstScrollSnap.Panels;
             _playerData.SecondMarkerSo = icons[_firstPreviousItem].GetComponent<ViewportItem>().GetMarkersSo();
             _playerData.PrimaryMarkerSo =  icons[_secondPreviousItem].GetComponent<ViewportItem>().GetMarkersSo();
-
+            SaveSystem.SavePlayer(_playerData);
             _mainMenuManager.OpenMainTab();
         }
     }

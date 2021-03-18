@@ -4,6 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+[Serializable]
+public class PlayerSave
+{
+    public int itensCollected;
+    public int startItensX;
+    public int startItensY;
+
+    public PlayerSave(PlayerData playerData)
+    {
+        itensCollected = playerData.GetOwnedMarkers().Count - 4;
+        startItensX = playerData.GetStartIndexes().x;
+        startItensY = playerData.GetStartIndexes().y;
+    }
+}
+
 public class PlayerData : MonoBehaviour
 {
     [SerializeField] private GameMarkersSo secondMarkerSo;
@@ -12,6 +27,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] public List<GameMarkersSo> notOwnedIconsList;
     [SerializeField] private string playerName;
 
+    public static int playedGames = 0;
     public static PlayerData Instance;
 
     private void Awake()
@@ -26,6 +42,26 @@ public class PlayerData : MonoBehaviour
             Destroy(gameObject);
         }
 
+        PlayerSave save = SaveSystem.LoadPlayers();
+        if (save == null) return;
+        LoadIconsList(save.itensCollected);
+        LoadSelectedIcons(save.startItensX, save.startItensY);
+    }
+
+    private void LoadSelectedIcons(int positionX ,int positionY )
+    {
+        secondMarkerSo = playerOwnedMarkers[positionX];
+        primaryMarkerSo = playerOwnedMarkers[positionY];
+    }
+
+    private void LoadIconsList(int qtd)
+    {
+        for (int i = 0; i < qtd; i++)
+        {
+            var item = GetFirstItem();
+            AddOwnedMarkers(item);
+            RemoveFirstItem();
+        }
     }
 
     public string PlayerName
@@ -48,19 +84,21 @@ public class PlayerData : MonoBehaviour
     public GameMarkersSo SecondMarkerSo
     {
         get => secondMarkerSo;
-        set => secondMarkerSo = value;
+        set => 
+            secondMarkerSo = value;
     }
-    
+
     public void AddOwnedMarkers(GameMarkersSo newGameMarkersSo)
     {
         playerOwnedMarkers.Add(newGameMarkersSo);
+        SaveSystem.SavePlayer(this);
     }
-    
+
     public bool IsListEmpty()
     {
         return notOwnedIconsList.Count == 0;
     }
-    
+
     public void RemoveFirstItem()
     {
         notOwnedIconsList.RemoveAt(0);
@@ -75,7 +113,12 @@ public class PlayerData : MonoBehaviour
     {
         var i = playerOwnedMarkers.FindIndex(a => a == secondMarkerSo);
         var j = playerOwnedMarkers.FindIndex(a => a == primaryMarkerSo);
-        
+
         return new Vector2Int(i, j);
+    }
+
+    public void IncreasePlayedGames()
+    {
+        playedGames++;
     }
 }

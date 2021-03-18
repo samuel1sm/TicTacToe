@@ -13,12 +13,16 @@ public class InformationalMenu : MonoBehaviour
 
     [SerializeField] private Image playerOneImage;
     [SerializeField] private Image playerTwoImage;
-
+    
     [SerializeField] private GameSetupHandler setupHandler;
 
+    [SerializeField] private GameObject firstPlayerTurnIcon;
+    [SerializeField] private GameObject secondPlayerTurnIcon;
+
+    private GameManager _gameManager;
     private void Awake()
     {
-        // _setupHandler = GameSetupHandler.Instance;
+        _gameManager = FindObjectOfType<GameManager>();
     
     }
 
@@ -39,10 +43,27 @@ public class InformationalMenu : MonoBehaviour
         playerTwoImage.color = arg2.itemColor;
     }
 
-    void Start()
+    private void Start()
     {
         setupHandler.UpdatePlayersImages += UpdateImages;
         setupHandler.UpdatePlayersNames += UpdateNames;
+        _gameManager.UpdatePosition += UpdatePlayer;
+        UpdatePlayer(Vector2.down, !_gameManager.isActiveAndEnabled);
+        
+    }
+
+    private void UpdatePlayer(Vector2 arg1, bool arg2)
+    {
+        if (arg2)
+        {
+            firstPlayerTurnIcon.SetActive(false);
+            secondPlayerTurnIcon.SetActive(true);
+        }
+        else
+        {
+            firstPlayerTurnIcon.SetActive(true);
+            secondPlayerTurnIcon.SetActive(false);
+        }
     }
 
     // Update is called once per frame

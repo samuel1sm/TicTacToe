@@ -13,9 +13,11 @@ public class OptionsMenuController : MonoBehaviour
 
     // private AudioManager _audioManager;
 
-    private void Awake()
+    private void Start()
     {
-        // _audioManager = FindObjectOfType<AudioManager>();
+        musicSlider.value = AudioManager.Instance.GetMusicVolume();
+        effectsSlider.value = AudioManager.Instance.GetEffectsVolume();
+
     }
 
     private void OnEnable()

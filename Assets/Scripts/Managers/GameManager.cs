@@ -16,6 +16,10 @@ public class GameManager : Singleton<GameManager>
         _gameMatrix = new int[3, 3];
     }
 
+    private void Start()
+    {
+    }
+
     private int VerifyWinningCondition()
     {
  
@@ -74,6 +78,7 @@ public class GameManager : Singleton<GameManager>
         if (result != 0 || _movesQtd == 9)
         {
             EndGame(result);
+            PlayerData.playedGames++;
         }
 
     }

@@ -147,4 +147,14 @@ public class AudioManager : MonoBehaviour
     {
         effectsVolume = value;
     }
+    
+    public float GetMusicVolume()
+    {
+        return musicVolume;
+    }
+    
+    public float GetEffectsVolume()
+    {
+        return effectsVolume;
+    }
 }
